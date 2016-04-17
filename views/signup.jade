@@ -1,0 +1,18 @@
+extends ./layout
+
+block content
+  .col-sm-6.col-sm-offset-3
+    h1
+      span.fa.fa-sign-in
+      |  Sign Up
+    form(action='/signup', method='post')
+      .form-group
+        label Email
+        input.form-control(type='text', name='user[username]')
+      .form-group
+        label What should we call you?
+        input.form-control(type='text', name='user[alias]')
+      .form-group
+        label Password
+        input.form-control(type='password', name='user[password]' autocomplete="off")
+      button.btn.btn-warning.btn-lg(type='submit') Login

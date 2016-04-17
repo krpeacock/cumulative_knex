@@ -1,0 +1,10 @@
+extends ../user_layout
+
+block content
+  h1 Add new photo
+  form(action='/users/#{user.id}/photos', method='post')
+    .form-group
+      label Link to Photo
+      input.form-control(type='text', name='ref')
+    input(type="submit" value="submit")
+    

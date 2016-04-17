@@ -1,0 +1,10 @@
+extends ../user_layout
+
+block content
+  h1 Edit Photo
+  form(action='/users/#{user.id}/photos/#{photo.id}?_method=PUT', method='post')
+    .form-group
+      label Link to Photo
+      input.form-control(type='text', name='ref' value="#{photo.ref}")
+    input(type="submit" value="submit")
+    

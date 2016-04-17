@@ -1,0 +1,14 @@
+extends ../user_layout
+  
+block content  
+  h1= user.alias
+  ul
+    each photo in photos
+      a(href="/users/#{user.id}/photos/#{photo.id}")   
+        img(src="#{photo.ref}")  
+  a(href="/users/#{user.id}/edit") Edit User
+  hr
+  a(href="/users/#{user.id}/photos/new") Add a photo 
+  
+  
+    

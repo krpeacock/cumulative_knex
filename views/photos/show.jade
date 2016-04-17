@@ -1,0 +1,9 @@
+extends ../user_layout
+  
+block content  
+  img(src="#{photo.ref}") 
+  br
+  a(href="/users/#{user.id}/photos/#{photo.id}/edit") Edit Photo 
+  form(action='/users/#{user.id}/photos/#{photo.id}?_method=DELETE', method='post')
+    button.btn.btn-alert.btn-lg(type='submit') Delete Photo
+  
