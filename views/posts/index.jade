@@ -1,0 +1,7 @@
+extends ../user_layout
+
+block content
+  a(href="/users/#{user.id}/posts/new") Create a New Post
+  if posts
+    each post in posts
+      h1= post.id

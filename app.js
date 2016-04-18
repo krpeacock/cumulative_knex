@@ -42,6 +42,8 @@ require('./helpers/passport.js')(passport);
 
 
 app.use('/users', routes.users);
+app.use('/users/:user_id/posts', routes.posts);
+app.use('/frontpage', routes.frontpage);
 app.use('/', routes.auth);
 
 // catch 404 and forward to error handler

@@ -4,6 +4,9 @@
 a {
   color: #00B7FF;
 }
+input{
+  margin: 15px 0;
+}
 .large_photo {
   height: 200px;
   width: 200px;

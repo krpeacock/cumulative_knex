@@ -17,8 +17,8 @@ module.exports = (passport) => {
       state: true
   },
   function(accessToken, refreshToken, profile, done){
-    done(null, {id: profile.id, displayName: profile.displayName, token: accessToken});
-  }
+    knex('users').where('')
+    }
   ));
 
   passport.use(new passportLocal.Strategy({
