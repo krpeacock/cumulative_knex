@@ -25,6 +25,13 @@ router.get('/logout', (req,res) =>{
  res.redirect('/login');
 });
 
+router.get('/auth/linkedin', 
+  passport.authenticate('linkedin'));
+
+router.get('/auth/linkedin/callback', passport.authenticate('linkedin', {
+  successRedirect: '/users',
+  failureRedirect: '/auth/login',
+}));
 
 
 router.post('/signup', (req, res) => {

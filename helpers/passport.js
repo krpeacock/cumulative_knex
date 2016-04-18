@@ -17,7 +17,24 @@ module.exports = (passport) => {
       state: true
   },
   function(accessToken, refreshToken, profile, done){
-    knex('users').where('')
+    knex('users').where('linkedin_id', profile.id).first().then(user=> {
+      if(user){
+        return done(null, user);
+      }
+      else {
+
+        knex('users').insert({
+          linkedin_id: profile.id,
+          alias: profile._json.formattedName, 
+          email: profile._json.emailAddress,
+          photo: profile._json.pictureUrl
+        }, "*").then(user => {
+          return done(null, user[0]);
+        });
+      }
+    }).catch(err => {
+      return done(err,null);
+    });
     }
   ));
 
