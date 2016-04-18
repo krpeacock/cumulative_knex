@@ -4,11 +4,14 @@ block content
   h1 ALL THE USERS
   table.table.table-hover
     thead
+      th Photo
       th Name
       th Posts
     tbody
       each user in users
         tr
+          td
+            img(src="#{user.photo}" class="thumb")
           td= user.alias
           td
             a(href="/users/#{user.id}") See this user's page

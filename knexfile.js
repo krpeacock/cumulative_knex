@@ -5,7 +5,7 @@ module.exports = {
   development: {
     client: 'pg',
     connection: {
-      database: 'knex_photos'
+      database: 'knex_cumulative'
     }
   },
 

@@ -29,7 +29,7 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
   secret: process.env.SECRET
-}))
+}));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
@@ -42,7 +42,6 @@ require('./helpers/passport.js')(passport);
 
 
 app.use('/users', routes.users);
-app.use('/users/:user_id/photos', routes.photos);
 app.use('/', routes.auth);
 
 // catch 404 and forward to error handler

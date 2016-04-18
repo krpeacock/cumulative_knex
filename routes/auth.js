@@ -18,12 +18,14 @@ router.get('/login', function(req,res,next) {
 
 router.get('/signup', function(req, res, next){
   res.render('signup', {message: req.flash('loginMessage')});
-})
+});
 
 router.get('/logout', (req,res) =>{
  req.logout();
  res.redirect('/login');
-})
+});
+
+
 
 router.post('/signup', (req, res) => {
   passwordHelpers.createUser(req).then((user) => {
@@ -38,12 +40,12 @@ router.post('/signup', (req, res) => {
         if (err) {
           return next(err);
         }
-        return res.redirect('/users/');
+        return res.redirect(`/users/${user.id}/edit`);
       })
       // })
     }).catch((err) =>{
-      if(err.constraint === 'users_username_unique'){
-        err.message = 'username is already taken'
+      if(err.constraint === 'users_email_unique'){
+        err.message = 'email is already taken'
       }
       if(err) {
         req.flash('loginMessage', err.message)

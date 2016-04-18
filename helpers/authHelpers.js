@@ -11,7 +11,7 @@ const authMiddleware  = {
     }
   },
   ensureCorrectUserForPost(req,res,next){
-    if(+req.params.user_id === req.user.id){
+    if(+req.params.id === req.user.id){
       return next()
     }
     else {

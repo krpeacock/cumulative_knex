@@ -21,18 +21,14 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/profile', function(req, res, next){
-  knex('photos').where('user_id', +req.user.id).then((photos) => {
-    res.render('users/profile', {user: req.user, photos})
-  })
+    res.render('users/profile', {user: req.user});
 })
 
 
 
 router.get('/:id', function(req, res, next) {
   knex('users').where('id', +req.params.id).first().then((user) => {
-    knex('photos').where('user_id', +req.params.id).then((photos) => {
-      res.render('users/show', {user, photos})
-    })
+    res.render('users/show');
   })
 })
 
@@ -40,11 +36,11 @@ router.get('/:id/edit', function(req, res, next){
   res.render('users/edit', {user: req.user});
 })
 
-router.put('/:id', authHelpers.ensureCorrectUserForPost, function(req, res, next) {
+router.put('/:id', function(req, res, next) {
   passwordHelpers.editUser(req).then((user) => {
-    res.redirect('/users/profile')
-  })
-})
+    res.redirect('/users/profile');
+  });
+});
 
 router.delete("/:id", function(req,res,next){
   knex('users').where('id', +req.params.id).first().del().then(() => {

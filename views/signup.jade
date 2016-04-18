@@ -8,10 +8,7 @@ block content
     form(action='/signup', method='post')
       .form-group
         label Email
-        input.form-control(type='text', name='user[username]')
-      .form-group
-        label What should we call you?
-        input.form-control(type='text', name='user[alias]')
+        input.form-control(type='text', name='user[email]')
       .form-group
         label Password
         input.form-control(type='password', name='user[password]' autocomplete="off")

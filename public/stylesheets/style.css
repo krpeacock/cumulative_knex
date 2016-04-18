@@ -4,3 +4,13 @@
 a {
   color: #00B7FF;
 }
+.large_photo {
+  height: 200px;
+  width: 200px;
+  display:block;
+  margin: 10px 0;
+}
+.thumb {
+  height:25px;
+  width:25px;
+}
